@@ -1,0 +1,72 @@
+/* ==========================================
+   1. PENGATURAN VARIABEL WARNA (THEMING)
+   ========================================== */
+
+/* Tema Default: DARK MODE (Otomatis Aktif) */
+:root, :root[data-theme="dark"] {
+  --bg-app: #121212;          /* Latar belakang aplikasi (hitam pekat) */
+  --bg-box: #1e1e1e;          /* Latar belakang kartu / box */
+  --text-main: #ffffff;       /* Warna teks utama */
+  --text-muted: #b3b3b3;      /* Warna teks sekunder / redup */
+  --border-color: #282828;    /* Warna garis pembatas */
+  
+  /* Override Warna Bawaan Bootstrap agar ikut gelap */
+  background-color: var(--bg-app) !important;
+  color: var(--text-main) !important;
+}
+
+/* Tema Alternatif: LIGHT MODE */
+:root[data-theme="light"] {
+  --bg-app: #f8f9fa;          /* Latar belakang aplikasi (abu-abu terang) */
+  --bg-box: #ffffff;          /* Latar belakang kartu / box (putih bersih) */
+  --text-main: #212529;       /* Warna teks utama (hitam) */
+  --text-muted: #6c757d;      /* Warna teks sekunder */
+  --border-color: #dee2e6;    /* Warna garis pembatas terang */
+}
+
+/* ==========================================
+   2. GLOBAL STYLE UTAMAKAN VARIABEL CSS
+   ========================================== */
+body {
+  background-color: var(--bg-app) !important;
+  color: var(--text-main) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Biar transisi warna halus */
+}
+
+/* Menyelaraskan seluruh komponen kartu Bootstrap dengan tema */
+.card {
+  background-color: var(--bg-box) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+/* Menyelaraskan teks muted Bootstrap */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Desain Khusus Sidebar Kiri di App.vue */
+.sidebar {
+  background-color: #050505; /* Warna hitam sidebar tetap gelap agar estetik */
+  width: 240px;
+  height: 100vh;
+}
+
+/* Style tombol menu saat aktif/tidak aktif */
+.sidebar .nav-link {
+  color: #b3b3b3;
+  transition: all 0.2s;
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Class active bawaan vue-router otomatis */
+.sidebar .router-link-active {
+  color: #fff !important;
+  background-color: #1ed760 !important; /* Warna hijau khas SpoJeDy */
+  font-weight: 600;
+}
